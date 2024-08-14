@@ -1,0 +1,32 @@
+.container{
+    display: flex;
+    flex-direction: column;
+}
+
+.container > .itens{
+    margin-bottom: 2%;
+}
+
+input{
+    border-radius: 5px;
+    width: 70vw;
+    height: 3vh;
+}
+
+.containerButton{
+    display: flex;
+    align-items: end;
+    justify-content: end;
+}
+
+button{
+    width: 15dvw;
+    height: 5dvh;
+    border-radius: 0.25rem;
+    border-color: #007bff;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    border: 1px solid transparent;
+}
