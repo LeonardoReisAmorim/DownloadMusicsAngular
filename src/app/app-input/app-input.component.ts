@@ -16,6 +16,13 @@ export class AppInputComponent {
 
   SubmitUrls(){
     this.apiService.addItem(this.urlsYoutube)
-    .subscribe(response => alert(`Foi realizada o download de ${response} musica(s)`));
+    .subscribe({
+      next(response){
+        alert(`Foi realizada o download de ${response} musica(s)`);
+      },
+      error(error){
+        console.log(JSON.parse(error.message));
+      }
+    });
   }
 }
