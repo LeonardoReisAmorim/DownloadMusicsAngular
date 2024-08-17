@@ -15,14 +15,15 @@ export class AppInputComponent {
   urlsYoutube:string = '';
 
   SubmitUrls(){
-    this.apiService.addItem(this.urlsYoutube)
-    .subscribe({
-      next(response){
-        alert(`Foi realizada o download de ${response} musica(s)`);
-      },
-      error(error){
-        console.log(JSON.parse(error.message));
-      }
+    this.apiService.addItem(this.urlsYoutube).subscribe(blob => {
+      const a = document.createElement('a');
+      const objectUrl = URL.createObjectURL(blob);
+      a.href = objectUrl;
+      a.download = 'musicas.zip';
+      a.click();
+      URL.revokeObjectURL(objectUrl);
+    }, error => {
+      alert("Aconteceu um erro. Revise o link do youtube e tente novamente");
     });
   }
 }

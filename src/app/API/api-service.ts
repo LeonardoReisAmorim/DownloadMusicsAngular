@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -18,7 +18,8 @@ export class ApiService {
     // Método POST
     addItem(item: string) {
         const body = { urlsYoutube: item };  // Envolvendo a string em um objeto JSON
-        return this.http.post(`${this.apiUrl}/DownloadMP3`, body);
+        return this.http.post(`${this.apiUrl}/DownloadMP3`, body, { headers: new HttpHeaders({"content-type": "application/json",
+"Accept": "application/zip"}), responseType: 'blob' });
     }
 
     // Método PUT
