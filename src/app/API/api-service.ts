@@ -1,12 +1,13 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from '../../environments/environment';
 
 @Injectable({
     providedIn: 'root',
 })
 
 export class ApiService {
-    private apiUrl = 'https://localhost:7057';
+    private apiUrl = environment.apiUrl;
 
     constructor(private http: HttpClient) {}
 
@@ -17,6 +18,7 @@ export class ApiService {
 
     // Método POST
     addItem(item: string) {
+        console.log(this.apiUrl);
         const body = { urlsYoutube: item };  // Envolvendo a string em um objeto JSON
         return this.http.post(`${this.apiUrl}/DownloadMP3`, body, { headers: new HttpHeaders({"content-type": "application/json",
 "Accept": "application/zip"}), responseType: 'blob' });
