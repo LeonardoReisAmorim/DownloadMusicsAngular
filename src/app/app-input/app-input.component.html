@@ -1,8 +1,10 @@
+<h3>Insira o(s) link(s) do youtube</h3>
 
-<div class="container">
-    <label class="itens">Insira o(s) link(s) do youtube separado(s) por vírgula</label>
-    <input class="itens" type="text" [(ngModel)]="urlsYoutube">    
+<div *ngFor="let value of inputMusicValues; let i = index; trackBy: trackByIndex">
+    <app-input-music [(value)]="inputMusicValues[i]"></app-input-music>
 </div>
+
+<button (click)="addInputMusic()">Adicionar link música</button>
 <div class="containerButton">
     <button (click)="SubmitUrls()">Baixar</button>
 </div>

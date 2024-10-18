@@ -9,7 +9,7 @@
 
 input{
     border-radius: 5px;
-    width: 70vw;
+    width: 50vw;
     height: 3vh;
 }
 
@@ -20,7 +20,6 @@ input{
 }
 
 button{
-    width: 15dvw;
     height: 5dvh;
     border-radius: 0.25rem;
     border-color: #007bff;
